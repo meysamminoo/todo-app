@@ -25,13 +25,21 @@ const TodoApp = () => {
     updatedTodos[index] = selectedTodo;
 
     setTodos(updatedTodos);
-    console.log(selectedTodo);
+  };
+
+  const removeHandler = (id) => {
+    const filteredTodos = todos.filter((todo) => id !== todo.id);
+    setTodos(filteredTodos);
   };
 
   return (
     <div className="container">
       <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} onCompelet={CompeletHandler} />
+      <TodoList
+        todos={todos}
+        onCompelet={CompeletHandler}
+        onDelete={removeHandler}
+      />
     </div>
   );
 };
