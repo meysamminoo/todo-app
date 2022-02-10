@@ -5,7 +5,7 @@ import TodoList from "./TodoList";
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
 
-  const addTodoHandler = (input) => {
+  const addTodo = (input) => {
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
       text: input,
@@ -31,14 +31,26 @@ const TodoApp = () => {
     const filteredTodos = todos.filter((todo) => id !== todo.id);
     setTodos(filteredTodos);
   };
+  const updateTodo = (id, newValue) => {
+    const index = todos.findIndex((todo) => id === todo.id);
+
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.text = newValue;
+
+    const updatedTodos = [...todos];
+    updatedTodos[index] = selectedTodo;
+
+    setTodos(updatedTodos);
+  };
 
   return (
     <div className="container">
-      <TodoForm addTodoHandler={addTodoHandler} />
+      <TodoForm submitTodo={addTodo} />
       <TodoList
         todos={todos}
         onCompelet={CompeletHandler}
         onDelete={removeHandler}
+        onUpdateTodo={updateTodo}
       />
     </div>
   );
