@@ -1,0 +1,32 @@
+.todo {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem;
+  background-color: #f7f7f7;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.btn,
+.remove {
+  color: #fff;
+  transition: all 0.4s ease;
+}
+.btn {
+  margin-right: 1rem;
+  background-color: #3b82f6;
+}
+.remove {
+  background-color: #f63b44;
+}
+.btn:hover {
+  background-color: transparent;
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+}
+.remove:hover {
+  background-color: transparent;
+  border: 2px solid #f63b44;
+  color: #f63b44;
+}

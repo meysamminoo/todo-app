@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
+import styles from "./TodoList.module.css";
 
 const TodoList = ({ todos, onCompelet, onDelete, onUpdateTodo }) => {
   const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
@@ -27,7 +28,7 @@ const TodoList = ({ todos, onCompelet, onDelete, onUpdateTodo }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {edit.id ? <TodoForm submitTodo={editTodo} edit={edit} /> : renderTodo()}
     </div>
   );

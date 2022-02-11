@@ -1,4 +1,5 @@
 import Select from "react-select";
+import styles from "./Navbar.module.css";
 
 const options = [
   { value: "All", label: "All" },
@@ -7,14 +8,20 @@ const options = [
 ];
 
 const Navbar = ({ uncompletedTodo, onChange, selectedOption }) => {
-  if (!uncompletedTodo) return <h1>add some today todos</h1>;
+  if (!uncompletedTodo)
+    return <h1 className={styles.title}>Add some today todos</h1>;
 
   return (
-    <header>
-      <span>{uncompletedTodo}</span>
-      <h1> not completed todos</h1>
+    <header className={styles.header}>
+      <span className={styles.number}>{uncompletedTodo}</span>
+      <h1> Not completed todos</h1>
 
-      <Select value={selectedOption} onChange={onChange} options={options} />
+      <Select
+        value={selectedOption}
+        onChange={onChange}
+        options={options}
+        className={styles.select}
+      />
     </header>
   );
 };

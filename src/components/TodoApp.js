@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import styles from "./TodoApp.module.css";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
@@ -70,7 +71,7 @@ const TodoApp = () => {
   };
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Navbar
         uncompletedTodo={todos.filter((t) => !t.isCompleted).length}
         onChange={selectHandler}

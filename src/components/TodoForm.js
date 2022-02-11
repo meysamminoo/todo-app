@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import styles from "./TodoForm.module.css";
 
 const TodoForm = ({ edit, submitTodo }) => {
   const [input, setInput] = useState(edit ? edit.text : "");
@@ -32,8 +33,11 @@ const TodoForm = ({ edit, submitTodo }) => {
         onChange={changeHandler}
         placeholder={edit ? "update todo ..." : "add todo ..."}
         ref={inputRef}
+        className={styles.input}
       />
-      <button type="submit">{edit ? "Update" : "Add"}</button>
+      <button type="submit" className={styles.btn}>
+        {edit ? "Update" : "Add"}
+      </button>
     </form>
   );
 };
