@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Todo from "./Todo";
-import TodoForm from "./TodoForm";
+import Todo from "./../Todo/Todo";
+import TodoForm from "./../TodoForm/TodoForm";
 import styles from "./TodoList.module.css";
 
 const TodoList = ({ todos, onCompelet, onDelete, onUpdateTodo }) => {

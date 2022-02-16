@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
+import Navbar from "./../Navbar/Navbar";
+import TodoForm from "./../TodoForm/TodoForm";
+import TodoList from "./../TodoList/TodoList";
 import styles from "./TodoApp.module.css";
 
 const TodoApp = () => {
