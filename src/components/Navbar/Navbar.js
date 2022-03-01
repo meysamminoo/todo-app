@@ -6,6 +6,7 @@ const options = [
   { value: "All", label: "All" },
   { value: "Complated", label: "Complated" },
   { value: "Uncomplated", label: "Uncomplated" },
+  { value: "Time", label: "Time" },
 ];
 
 const Navbar = ({ onChange, selectedOption }) => {

@@ -4,7 +4,7 @@ import Todo from "./../Todo/Todo";
 import TodoForm from "./../TodoForm/TodoForm";
 import styles from "./TodoList.module.css";
 
-const TodoList = ({ todos, submitTodo }) => {
+const TodoList = ({ todos }) => {
   const { updateTodo, CompeletHandler, removeHandler } = useTodosActions();
 
   const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });

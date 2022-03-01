@@ -23,20 +23,33 @@ export const useTodosActions = () => {
   const todos = useContext(TodosContext);
 
   const addTodo = (input) => {
+    let dateGenerate = new Date();
+    dateGenerate =
+      dateGenerate.toLocaleDateString() +
+      " " +
+      dateGenerate.toLocaleTimeString();
+
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
       text: input,
       isCompleted: false,
+      dateGenerate,
+      dateUpdated: dateGenerate,
     };
 
     setTodos([...todos, newTodo]);
   };
 
   const updateTodo = (id, newValue) => {
+    let dateUpdated = new Date();
+    dateUpdated =
+      dateUpdated.toLocaleDateString() + " " + dateUpdated.toLocaleTimeString();
+
     const index = todos.findIndex((todo) => id === todo.id);
 
     const selectedTodo = { ...todos[index] };
     selectedTodo.text = newValue;
+    selectedTodo.dateUpdated = dateUpdated;
 
     const updatedTodos = [...todos];
     updatedTodos[index] = selectedTodo;

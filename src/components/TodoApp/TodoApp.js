@@ -22,6 +22,9 @@ const TodoApp = () => {
       case "Uncomplated":
         setFilteredTodos(todos.filter((t) => !t.isCompleted));
         break;
+      case "Time":
+        setFilteredTodos(todos.sort((a, b) => b.dateUpdated - a.dateUpdated));
+        break;
       default:
         setFilteredTodos(todos);
         break;
