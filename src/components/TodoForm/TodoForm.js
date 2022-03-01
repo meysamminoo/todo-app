@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./TodoForm.module.css";
+import { useTodosActions } from "../Providers/TodosProvider";
 
 const TodoForm = ({ edit, submitTodo }) => {
+  const { addTodo } = useTodosActions();
+
   const [input, setInput] = useState(edit ? edit.text : "");
 
   const inputRef = useRef(null);
@@ -20,8 +23,11 @@ const TodoForm = ({ edit, submitTodo }) => {
       alert("add todo");
       return;
     }
-
-    submitTodo(input);
+    if (edit) {
+      submitTodo(input);
+    } else {
+      addTodo(input);
+    }
     setInput("");
   };
 

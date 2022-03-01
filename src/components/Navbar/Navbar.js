@@ -1,4 +1,5 @@
 import Select from "react-select";
+import { useTodos } from "../Providers/TodosProvider";
 import styles from "./Navbar.module.css";
 
 const options = [
@@ -7,7 +8,10 @@ const options = [
   { value: "Uncomplated", label: "Uncomplated" },
 ];
 
-const Navbar = ({ uncompletedTodo, onChange, selectedOption }) => {
+const Navbar = ({ onChange, selectedOption }) => {
+  const todos = useTodos();
+  const uncompletedTodo = todos.filter((t) => !t.isCompleted).length;
+
   if (!uncompletedTodo)
     return <h1 className={styles.title}>Add some today todos</h1>;
 
