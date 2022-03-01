@@ -1,12 +1,15 @@
 import "./App.css";
+import TodosProvider from "./components/Providers/TodosProvider";
 import TodoApp from "./components/TodoApp/TodoApp";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="title">Todo App</h1>
-      <TodoApp />
-    </div>
+    <TodosProvider>
+      <div className="App">
+        <h1 className="title">Todo App</h1>
+        <TodoApp />
+      </div>
+    </TodosProvider>
   );
 }
 

@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
+import { useTodos, useTodosActions } from "../Providers/TodosProvider";
 import Navbar from "./../Navbar/Navbar";
 import TodoForm from "./../TodoForm/TodoForm";
 import TodoList from "./../TodoList/TodoList";
 import styles from "./TodoApp.module.css";
 
 const TodoApp = () => {
-  const [todos, setTodos] = useState([]);
+  const todos = useTodos();
+  const setTodos = useTodosActions();
+
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [selectedOption, setSelectedOption] = useState("All");
 
