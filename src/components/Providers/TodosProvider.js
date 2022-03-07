@@ -26,7 +26,7 @@ export const useTodosActions = () => {
     let dateGenerate = new Date();
     dateGenerate =
       dateGenerate.toLocaleDateString() +
-      " " +
+      " - " +
       dateGenerate.toLocaleTimeString();
 
     const newTodo = {
@@ -43,7 +43,9 @@ export const useTodosActions = () => {
   const updateTodo = (id, newValue) => {
     let dateUpdated = new Date();
     dateUpdated =
-      dateUpdated.toLocaleDateString() + " " + dateUpdated.toLocaleTimeString();
+      dateUpdated.toLocaleDateString() +
+      " - " +
+      dateUpdated.toLocaleTimeString();
 
     const index = todos.findIndex((todo) => id === todo.id);
 

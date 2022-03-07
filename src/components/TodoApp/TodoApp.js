@@ -23,7 +23,17 @@ const TodoApp = () => {
         setFilteredTodos(todos.filter((t) => !t.isCompleted));
         break;
       case "Time":
-        setFilteredTodos(todos.sort((a, b) => b.dateUpdated - a.dateUpdated));
+        setFilteredTodos(
+          todos.sort((a, b) => {
+            // todo: splite date and time
+            a = a.dateUpdated.split("-");
+            b = b.dateUpdated.split("-");
+            // todo: set time and sort
+            a = a[1].split("/").reverse().join();
+            b = b[1].split("/").reverse().join();
+            return b > a ? 1 : b < a ? -1 : 0;
+          })
+        );
         break;
       default:
         setFilteredTodos(todos);
@@ -35,6 +45,7 @@ const TodoApp = () => {
     setSelectedOption(e);
     filteredTodosHandler(e.value);
   };
+
   return (
     <div className={styles.container}>
       <Navbar onChange={selectHandler} selectedOption={selectedOption} />
