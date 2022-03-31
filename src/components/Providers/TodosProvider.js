@@ -77,6 +77,7 @@ export const useTodosActions = () => {
   };
 
   return {
+    setTodos,
     addTodo,
     updateTodo,
     CompeletHandler,

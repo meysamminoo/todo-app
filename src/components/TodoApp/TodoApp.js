@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useTodos } from "../Providers/TodosProvider";
+import { useTodos, useTodosActions } from "../Providers/TodosProvider";
 import Navbar from "./../Navbar/Navbar";
 import TodoForm from "./../TodoForm/TodoForm";
 import TodoList from "./../TodoList/TodoList";
@@ -7,12 +7,22 @@ import styles from "./TodoApp.module.css";
 
 const TodoApp = () => {
   const todos = useTodos();
+  const { setTodos } = useTodosActions();
   const [selectedOption, setSelectedOption] = useState("All");
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   useEffect(() => {
     filteredTodosHandler(selectedOption.value);
   }, [todos, selectedOption]);
+
+  useEffect(() => {
+    const savedTransaction = JSON.parse(localStorage.getItem("todos"));
+    if (savedTransaction) setTodos(savedTransaction);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const filteredTodosHandler = (status) => {
     switch (status) {
